@@ -1,0 +1,43 @@
+// app.js
+let currentSlide = 0;
+
+function showSlide(index) {
+    const pptContainer = document.querySelector('.ppt-container');
+    const slides = document.querySelectorAll('.ppt-slide');
+    const totalSlides = slides.length;
+
+    if (index < 0) {
+        currentSlide = totalSlides - 1; // Go to last slide
+    } else if (index >= totalSlides) {
+        currentSlide = 0; // Go to first slide
+    } else {
+        currentSlide = index;
+    }
+
+    const offset = -100 * currentSlide; // Calculate the offset
+    pptContainer.style.transform = `translateX(${offset}%)`; // Move the slides container
+}
+
+// 滚动事件处理
+let isScrolling = false;
+
+window.addEventListener('wheel', (event) => {
+    if (isScrolling) return;
+
+    isScrolling = true;
+    if (event.deltaY > 0) {
+        // 向下滚动，切换到下一页
+        showSlide(currentSlide + 1);
+    } else {
+        // 向上滚动，切换到上一页
+        showSlide(currentSlide - 1);
+    }
+
+    // 滚动后稍微延迟，防止快速滚动时切换过快
+    setTimeout(() => {
+        isScrolling = false;
+    }, 1000);
+});
+
+// 初始化显示第一张幻灯片
+showSlide(currentSlide);
