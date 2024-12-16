@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动滑动PPT展示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="ppt-container">
+        <div class="ppt-slide" id="slide1">
+            <h2>Slide 1</h2>
+            <p>This is the content of Slide 1</p>
+        </div>
+        <div class="ppt-slide" id="slide2">
+            <h2>Slide 2</h2>
+            <p>This is the content of Slide 2</p>
+        </div>
+        <div class="ppt-slide" id="slide3">
+            <h2>Slide 3</h2>
+            <p>This is the content of Slide 3</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
